@@ -19,7 +19,7 @@ package org.au9ustine.puzzles.s99
 import org.scalatest.{FlatSpec, Matchers}
 
 /**
- * Problem 01 Unit Test
+ * Problem 01 Unit Testing
  *
  * Created by au9ustine on 4/21/15.
  */

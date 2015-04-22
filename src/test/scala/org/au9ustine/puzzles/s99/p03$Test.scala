@@ -16,27 +16,29 @@
 
 package org.au9ustine.puzzles.s99
 
-import java.util.NoSuchElementException
-
 import org.scalatest.{Matchers, FlatSpec}
 
 /**
- * Problem 02 Unit Testing
+ * Problem 03 Unit Testing
  *
- * Created by au9ustine on 4/21/15.
+ * Created by au9ustine on 4/22/15.
  */
-class p02$Test extends FlatSpec with Matchers {
-
-  "p02.penultimate" should "fail if count of list items is less than 2" in {
+class p03$Test extends FlatSpec with Matchers {
+  "p03.nth" should "fail if n is not qualified" in {
     intercept[NoSuchElementException] {
-      p02.penultimate(List())
-      p02.penultimate(List(1))
+      p03.nth(List(1, 2, 3), 4)
+      p03.nth(List(1, 2, 3), -1)
     }
   }
 
-  it should "pick the last but one element if given a " +
-    "qualified list" in {
-    p02.penultimate(List(1, 1, 2, 3, 5, 8)) should be (5)
+  it should "fail if lst is null" in {
+    intercept[NullPointerException] {
+      p03.nth(null, 0)
+    }
   }
 
+  it should "get nth element from a list if all params are qualified" in {
+    p03.nth(List(1, 2, 3), 0) should be (1)
+    p03.nth((0 to 100).toList, 100) should be (100)
+  }
 }

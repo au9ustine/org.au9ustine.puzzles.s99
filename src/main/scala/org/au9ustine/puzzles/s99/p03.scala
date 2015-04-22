@@ -16,27 +16,17 @@
 
 package org.au9ustine.puzzles.s99
 
-import java.util.NoSuchElementException
-
-import org.scalatest.{Matchers, FlatSpec}
-
 /**
- * Problem 02 Unit Testing
+ * Problem 03: Find the Kth element of a list
  *
- * Created by au9ustine on 4/21/15.
+ * Created by au9ustine on 4/22/15.
  */
-class p02$Test extends FlatSpec with Matchers {
-
-  "p02.penultimate" should "fail if count of list items is less than 2" in {
-    intercept[NoSuchElementException] {
-      p02.penultimate(List())
-      p02.penultimate(List(1))
+object p03 {
+  def nth[A](lst: List[A], n: Int): A = n <= lst.size && n >= 0 match {
+    case true => lst match {
+      case null => throw new NullPointerException
+      case _ => lst(n)
     }
+    case _ => throw new NoSuchElementException
   }
-
-  it should "pick the last but one element if given a " +
-    "qualified list" in {
-    p02.penultimate(List(1, 1, 2, 3, 5, 8)) should be (5)
-  }
-
 }
