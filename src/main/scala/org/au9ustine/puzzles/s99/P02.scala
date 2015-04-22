@@ -23,7 +23,7 @@ import java.util.NoSuchElementException
  *
  * Created by au9ustine on 4/21/15.
  */
-object p02 {
+object P02 {
   def penultimate[A](lst: List[A]): A = lst.isEmpty match {
     case true => throw new NoSuchElementException
     case _ => lst.init.last

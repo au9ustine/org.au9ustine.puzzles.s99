@@ -16,29 +16,17 @@
 
 package org.au9ustine.puzzles.s99
 
-import org.scalatest.{Matchers, FlatSpec}
-
 /**
- * Problem 03 Unit Testing
+ * Problem 03: Find the Kth element of a list
  *
  * Created by au9ustine on 4/22/15.
  */
-class p03$Test extends FlatSpec with Matchers {
-  "p03.nth" should "fail if n is not qualified" in {
-    intercept[NoSuchElementException] {
-      p03.nth(List(1, 2, 3), 4)
-      p03.nth(List(1, 2, 3), -1)
+object P03 {
+  def nth[A](lst: List[A], n: Int): A = n <= lst.size && n >= 0 match {
+    case true => lst match {
+      case null => throw new NullPointerException
+      case _ => lst(n)
     }
-  }
-
-  it should "fail if lst is null" in {
-    intercept[NullPointerException] {
-      p03.nth(null, 0)
-    }
-  }
-
-  it should "get nth element from a list if all params are qualified" in {
-    p03.nth(List(1, 2, 3), 0) should be (1)
-    p03.nth((0 to 100).toList, 100) should be (100)
+    case _ => throw new NoSuchElementException
   }
 }

@@ -17,16 +17,10 @@
 package org.au9ustine.puzzles.s99
 
 /**
- * Problem 03: Find the Kth element of a list
+ * Problem 01: Find the last item of a list
  *
- * Created by au9ustine on 4/22/15.
+ * Created by au9ustine on 4/21/15.
  */
-object p03 {
-  def nth[A](lst: List[A], n: Int): A = n <= lst.size && n >= 0 match {
-    case true => lst match {
-      case null => throw new NullPointerException
-      case _ => lst(n)
-    }
-    case _ => throw new NoSuchElementException
-  }
+object P01 {
+  def last[T](lst: List[T]) = lst.last
 }

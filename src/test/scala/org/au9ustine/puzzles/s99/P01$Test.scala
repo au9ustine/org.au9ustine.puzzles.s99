@@ -16,11 +16,18 @@
 
 package org.au9ustine.puzzles.s99
 
+import org.scalatest.{FlatSpec, Matchers}
+
 /**
- * Problem 01: Find the last item of a list
+ * Problem 01 Unit Testing
  *
  * Created by au9ustine on 4/21/15.
  */
-object p01 {
-  def last[T](lst: List[T]) = lst.last
+class P01$Test extends FlatSpec with Matchers {
+
+  "P01.last" should "get last item of a list" in {
+    P01.last(List(1, 2, 3)) should be (3)
+    P01.last(List("I", "like", "reading")) should be ("reading")
+  }
+
 }
