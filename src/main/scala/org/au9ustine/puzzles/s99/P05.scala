@@ -17,14 +17,13 @@
 package org.au9ustine.puzzles.s99
 
 /**
- * Problem 03: Find the Kth element of a list
+ * Problem 05: Reverse a list
  *
- * Created by au9ustine on 4/22/15.
+ * Created by au9ustine on 4/23/15.
  */
-object P03 {
-  def nth[A](lst: List[A], n: Int): A = n <= lst.size && n >= 0 match {
-    case true if lst == null => throw new NullPointerException
-    case false => throw new NoSuchElementException
-    case _ => lst(n)
+object P05 {
+  def reverse[A](lst: List[A]): List[A] = lst match {
+    case null => throw new NullPointerException
+    case _ => lst.reverse
   }
 }

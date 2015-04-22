@@ -16,15 +16,21 @@
 
 package org.au9ustine.puzzles.s99
 
+import org.scalatest.{Matchers, FlatSpec, FunSuite}
+
 /**
- * Problem 03: Find the Kth element of a list
+ * Problem 05 Unit Testing
  *
- * Created by au9ustine on 4/22/15.
+ * Created by au9ustine on 4/23/15.
  */
-object P03 {
-  def nth[A](lst: List[A], n: Int): A = n <= lst.size && n >= 0 match {
-    case true if lst == null => throw new NullPointerException
-    case false => throw new NoSuchElementException
-    case _ => lst(n)
+class P05$Test extends FlatSpec with Matchers {
+  "P05.reverse" should "fail if a list is null" in {
+    intercept[NullPointerException] {
+      P05.reverse(null)
+    }
+  }
+
+  it should "return a reversed list given a qualified list" in {
+    P05.reverse((1 to 100).toList) should be ((100 to 1 by -1).toList)
   }
 }
