@@ -16,23 +16,15 @@
 
 package org.au9ustine.puzzles.s99
 
-import org.scalatest.{FlatSpec, Matchers}
-
 /**
- * Problem 04 Unit Testing
+ * Problem 06: Find out whether a list is palindrome
  *
- * Created by au9ustine on 4/22/15.
+ * Created by au9ustine on 4/23/15.
  */
-class P04$Test extends FlatSpec with Matchers {
-
-  "P04.length" should "fail if lst is null" in {
-    intercept[NullPointerException] {
-      P04.length(null)
-    }
+object P06 {
+  def isPalindrome[A](lst: List[A]): Boolean = lst match {
+    case null => throw new NullPointerException
+    case _ => (0 to lst.size/2).forall(x =>
+      lst(x).equals(lst(lst.size - x - 1)))
   }
-
-  it should "get length of a list" in {
-    P04.length((1 to 1000).toList) should be (1000)
-  }
-
 }

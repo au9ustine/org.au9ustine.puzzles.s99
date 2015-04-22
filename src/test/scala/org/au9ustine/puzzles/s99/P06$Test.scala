@@ -19,20 +19,29 @@ package org.au9ustine.puzzles.s99
 import org.scalatest.{FlatSpec, Matchers}
 
 /**
- * Problem 04 Unit Testing
+ * Problem 06 Unit Testing
  *
- * Created by au9ustine on 4/22/15.
+ * Created by au9ustine on 4/23/15.
  */
-class P04$Test extends FlatSpec with Matchers {
+class P06$Test extends FlatSpec with Matchers {
 
-  "P04.length" should "fail if lst is null" in {
+  "P06.isPalindrome" should "fail if a list is null" in {
     intercept[NullPointerException] {
-      P04.length(null)
+      P06.isPalindrome(null)
     }
   }
 
-  it should "get length of a list" in {
-    P04.length((1 to 1000).toList) should be (1000)
+  it should "return true if it's a palindrome list" in {
+    P06.isPalindrome(List(1, 2, 1)) should be (true)
+    val lst = (1 to 50).toList ++ (50 to 1 by -1).toList
+    P06.isPalindrome(lst) should be (true)
+  }
+
+  it should "return false if it's not a palindrome list" in {
+    P06.isPalindrome(List(1, 2, 3)) should be (false)
+    P06.isPalindrome(List(1, 2, 1, 2, 4)) should be (false)
+    val lst = (1 to 100).toList
+    P06.isPalindrome(lst) should be (false)
   }
 
 }
