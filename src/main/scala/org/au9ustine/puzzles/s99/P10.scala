@@ -18,21 +18,16 @@ package org.au9ustine.puzzles.s99
 
 /**
  *
- *  Problem 09: Pack consecutive duplicates of list elements into sublists.
+ *  Problem 10: Run-length encoding of a list.
  *
- *  If a list contains repeated elements they should be placed in separate sublists.
+ *  Use the result of problem P09 to implement the so-called run-length encoding data compression method. Consecutive
+ *  duplicates of elements are encoded as tuples (N, E) where N is the number of duplicates of the element E.
  *
  *  Example:
  *
- *  scala> pack(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
- *  res0: List[List[Symbol]] = List(List('a, 'a, 'a, 'a), List('b), List('c, 'c), List('a, 'a), List('d), List('e, 'e, 'e, 'e))
- *
+ *  scala> encode(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
+ *  res0: List[(Int, Symbol)] = List((4,'a), (1,'b), (2,'c), (2,'a), (1,'d), (4,'e))
  */
-object P09 {
-  def pack[A](lst: List[A]): List[List[A]] = lst.foldLeft(List[List[A]]()) {
-    (ret, x) => x match {
-      case x_different if ret.isEmpty || x_different != ret.head.last => List(x) :: ret
-      case _ => (x :: ret.head) :: ret.tail
-    }
-  }.reverse
+object P10 {
+  def encode[A](lst: List[A]): List[(Int, A)] = P09.pack(lst).map(elem_lst => (elem_lst.size, elem_lst.head))
 }
