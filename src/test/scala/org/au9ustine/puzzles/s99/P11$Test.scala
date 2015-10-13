@@ -9,7 +9,7 @@ import org.scalatest.{FlatSpec, Matchers}
  */
 class P11$Test extends FlatSpec with Matchers {
 
-  "P10.pack" should "group duplicated word into lists of a list "  in {
+  "P11.encodeModified" should "be able to encode modified run-length encoding."  in {
     val lst = List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
     val expected = List((4,'a), 'b, (2,'c), (2,'a), 'd, (4,'e))
     P11.encodeModified(lst) should be (expected)

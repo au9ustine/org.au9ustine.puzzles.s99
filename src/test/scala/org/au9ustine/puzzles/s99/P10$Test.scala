@@ -9,7 +9,7 @@ import org.scalatest.{Matchers, FlatSpec, FunSuite}
  */
 class P10$Test extends FlatSpec with Matchers {
 
-  "P10.pack" should "group duplicated word into lists of a list "  in {
+  "P10.pack" should "be able to encode run-length encoding of a list."  in {
     val lst = List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
     val expected = List((4,'a), (1,'b), (2,'c), (2,'a), (1,'d), (4,'e))
     P10.encode(lst) should be (expected)
