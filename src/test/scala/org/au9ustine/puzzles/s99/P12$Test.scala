@@ -1,6 +1,6 @@
 package org.au9ustine.puzzles.s99
 
-import org.scalatest.{Matchers, FlatSpec, FunSuite}
+import org.scalatest.{Matchers, FlatSpec}
 
 /**
  * Problem 12 Unit Testing
